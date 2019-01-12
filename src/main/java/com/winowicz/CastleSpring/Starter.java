@@ -1,5 +1,6 @@
 package com.winowicz.CastleSpring;
 
+import com.winowicz.CastleSpring.Domain.Repository.KnightRepository;
 import com.winowicz.CastleSpring.Domain.Repository.KnightRepositoryImpl;
 import com.winowicz.CastleSpring.Domain.Repository.QuestRepository;
 import com.winowicz.CastleSpring.Services.QuestService;
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Component;
 public class Starter implements CommandLineRunner {
 
     @Autowired
-    KnightRepositoryImpl knightRepositoryImpl;
+    KnightRepository knightRepository;
 
     @Autowired
     QuestRepository questRepository;
@@ -31,8 +32,8 @@ public class Starter implements CommandLineRunner {
         questService.assignRandomQuest("Lancelot");
         questService.assignRandomQuest("Percival");
 
-        System.out.println(knightRepositoryImpl.getKnight("Lancelot"));
-        System.out.println(knightRepositoryImpl.getKnight("Percival"));
+        System.out.println(knightRepository.getKnight("Lancelot"));
+        System.out.println(knightRepository.getKnight("Percival"));
 
     }
 
